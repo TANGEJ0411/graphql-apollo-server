@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>title</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <input type="text" id="input" />
+    <button type="button" id="btn">送出</button>
+
+    <script>
+      const ws = new WebSocket("ws://localhost:8080");
+
+      // Connection opened
+      ws.addEventListener("open", (event) => {
+        socket.send("Hello Server!");
+      });
+
+      // Listen for messages
+      ws.addEventListener("message", (event) => {
+        console.log("Message from server ", event.data);
+      });
+    </script>
+  </body>
+</html>
